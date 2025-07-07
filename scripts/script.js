@@ -75,17 +75,17 @@ map.on('load', () => {
         placeholder: 'Pesquisar endereço'
     });
     document.getElementById('geocoder-container').appendChild(geocoder.onAdd(map));
-
-    const institutionImages = {
-        'São Judas': './assents/marker/marker.png', 'Anhembi Morumbi': './assents/marker/markeramo.png',
-        'FASEH': './assents/marker/markerFASEH.png', 'IBMR': './assents/marker/markerIBMR.png',
-        'UniBH': './assents/marker/markerUNIBH.png', 'Una': './assents/marker/markerUNA.png',
-        'FADERGS': './assents/marker/markerFADERGS.png', 'Unicuritiba': './assents/marker/markerUNICURITIBA.png',
-        'UniRitter': './assents/marker/markerUNIRITTER.png', 'UniSociesc': './assents/marker/markerUNISOCIESC.png',
-        'UNISUL': './assents/marker/markerUNISUL.png', 'AGES': './assents/marker/markerAGES.png',
-        'FPB': './assents/marker/markerFPB.png', 'UNIFG': './assents/marker/markerUNIFG.png',
-        'UNIFGG': './assents/marker/markerUNIFGG.png', 'UNIFACS': './assents/marker/markerUNIFACS.png',
-        'UnP': './assents/marker/markerUNP.png',
+    
+  const institutionImages = {
+        'São Judas': './assets/marker/marker.png', 'Anhembi Morumbi': './assets/marker/marker_AMO.png',
+        'FASEH': './assets/marker/marker_FASEH.png', 'IBMR': './assets/marker/marker_IBMR.png',
+        'UniBH': './assets/marker/marker_UNIBH.png', 'Una': './assets/marker/marker_UNA.png',
+        'FADERGS': './assets/marker/marker_FADERGS.png', 'Unicuritiba': './assets/marker/marker_UNICURITIBA.png',
+        'UniRitter': './assets/marker/marker_UNIRITTER.png', 'UniSociesc': './assets/marker/marker_UNISOCIESC.png',
+        'UNISUL': './assets/marker/marker_UNISUL.png', 'AGES': './assets/marker/marker_AGES.png',
+        'FPB': './assets/marker/marker_FPB.png', 'UNIFG': './assets/marker/marker_UNIFG.png',
+        'UNIFGG': './assets/marker/marker_UNIFGG.png', 'UNIFACS': './assets/marker/marker_UNIFACS.png',
+        'UnP': './assets/marker/marker_UNP.png',
     };
 
     const imageLoadPromises = Object.entries(institutionImages).map(([name, url]) =>
