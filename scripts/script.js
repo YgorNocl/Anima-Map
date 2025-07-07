@@ -77,15 +77,15 @@ map.on('load', () => {
     document.getElementById('geocoder-container').appendChild(geocoder.onAdd(map));
 
     const institutionImages = {
-        'São Judas': './SS/marker/marker.png', 'Anhembi Morumbi': './SS/marker/markeramo.png',
-        'FASEH': './SS/marker/markerFASEH.png', 'IBMR': './SS/marker/markerIBMR.png',
-        'UniBH': './SS/marker/markerUNIBH.png', 'Una': './SS/marker/markerUNA.png',
-        'FADERGS': './SS/marker/markerFADERGS.png', 'Unicuritiba': './SS/marker/markerUNICURITIBA.png',
-        'UniRitter': './SS/marker/markerUNIRITTER.png', 'UniSociesc': './SS/marker/markerUNISOCIESC.png',
-        'UNISUL': './SS/marker/markerUNISUL.png', 'AGES': './SS/marker/markerAGES.png',
-        'FPB': './SS/marker/markerFPB.png', 'UNIFG': './SS/marker/markerUNIFG.png',
-        'UNIFGG': './SS/marker/markerUNIFGG.png', 'UNIFACS': './SS/marker/markerUNIFACS.png',
-        'UnP': './SS/marker/markerUNP.png',
+        'São Judas': './assents/marker/marker.png', 'Anhembi Morumbi': './assents/marker/markeramo.png',
+        'FASEH': './assents/marker/markerFASEH.png', 'IBMR': './assents/marker/markerIBMR.png',
+        'UniBH': './assents/marker/markerUNIBH.png', 'Una': './assents/marker/markerUNA.png',
+        'FADERGS': './assents/marker/markerFADERGS.png', 'Unicuritiba': './assents/marker/markerUNICURITIBA.png',
+        'UniRitter': './assents/marker/markerUNIRITTER.png', 'UniSociesc': './assents/marker/markerUNISOCIESC.png',
+        'UNISUL': './assents/marker/markerUNISUL.png', 'AGES': './assents/marker/markerAGES.png',
+        'FPB': './assents/marker/markerFPB.png', 'UNIFG': './assents/marker/markerUNIFG.png',
+        'UNIFGG': './assents/marker/markerUNIFGG.png', 'UNIFACS': './assents/marker/markerUNIFACS.png',
+        'UnP': './assents/marker/markerUNP.png',
     };
 
     const imageLoadPromises = Object.entries(institutionImages).map(([name, url]) =>
