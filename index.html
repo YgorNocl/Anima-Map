@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa de Instituições</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet" />
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <button id="toggleSidebar" class="menu-btn">☰</button>
+  
+  <div class="sidebar">
+    <div id="region-filters">
+      <div class="filter-row">
+        <button class="region-btn icon-btn active" data-region="Todos" data-center='[-46, -15]' data-zoom='4' title="Mostrar Todas as Regiões">🌐</button>
+        <button class="region-btn" data-region="São Paulo" data-center='[-46.6333, -23.5505]' data-zoom='8'>São Paulo</button>
+        <button class="region-btn" data-region="MG" data-center='[-43.9320, -19.9175]' data-zoom='6.5'>MG/RJ/GO</button>
+        <button class="region-btn" data-region="SUL" data-center='[-48.5279, -27.5806]' data-zoom='6.5'>Sul</button>
+        <button class="region-btn" data-region="NORDESTE" data-center='[-38.1528, -8.2850]' data-zoom='6.5'>Nordeste</button>
+      </div>
+    </div>
+
+    <div id="listings" class="listings"></div>
+  </div>
+  
+  <div id="map" class="map"></div>
+  <div id="geocoder-container"></div>
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
