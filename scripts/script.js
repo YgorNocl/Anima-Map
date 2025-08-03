@@ -4,11 +4,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWdvcnJlY3VydCIsImEiOiJjbWNtdjY3cTcwMDZoMmpvZ
 
 const map = new mapboxgl.Map({
     container: 'map',
+    style: 'mapbox://styles/ygorrecurt/cmdw6ja4w002e01qo3y2zbifs',
     center: [-46.6333, -23.5505],
     zoom: 10,
-    minZoom: 4,
+    minZoom: 6,
     maxZoom: 18,
     maxBounds: [[-74.0, -34.0], [-32.0, 5.0]],
+    config: {
+    basemap: {
+      showPedestrianRoads: false,
+      showPointOfInterestLabels: false,
+      showRoadLabels: false,
+      showTransitLabels: false,
+      show3dObjects: false,
+      showLandmarkIcons: false
+    }
+  },
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -110,7 +121,7 @@ map.on('load', () => {
                     ...Object.keys(institutionImages).flatMap(name => [name, name]),
                     'São Judas'
                 ],
-                'icon-size': ['interpolate', ['linear'], ['zoom'], 8, 0.2, 12, 0.3],
+                'icon-size': ['interpolate', ['linear'], ['zoom'], 8, 0.28, 12, 0.3],
                 'icon-allow-overlap': true
             }
         });
