@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/ygorrecurt/cmdw6ja4w002e01qo3y2zbifs',
     center: [-46.6333, -23.5505],
     zoom: 10,
-    minZoom: 6,
+    minZoom: 5,
     maxZoom: 18,
     maxBounds: [[-74.0, -34.0], [-32.0, 5.0]],
     config: {
