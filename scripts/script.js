@@ -11,15 +11,15 @@ const map = new mapboxgl.Map({
     maxZoom: 18,
     maxBounds: [[-74.0, -34.0], [-32.0, 5.0]],
     config: {
-    basemap: {
-      showPedestrianRoads: false,
-      showPointOfInterestLabels: false,
-      showRoadLabels: false,
-      showTransitLabels: false,
-      show3dObjects: false,
-      showLandmarkIcons: false
-    }
-  },
+        basemap: {
+            showPedestrianRoads: false,
+            showPointOfInterestLabels: false,
+            showRoadLabels: false,
+            showTransitLabels: false,
+            show3dObjects: false,
+            showLandmarkIcons: false
+        }
+    },
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -65,6 +65,10 @@ function buildLocationList(features) {
             document.querySelectorAll('.listings .item.active').forEach(item => item.classList.remove('active'));
             listing.classList.add('active');
         });
+        if (feature.properties.distance) {
+            const roundedDistance = Math.round(feature.properties.distance * 100) / 100;
+            details.innerHTML += `<div><strong>A ${roundedDistance} km de distância</strong></div>`;
+        }
     }
 }
 
@@ -83,11 +87,15 @@ map.on('load', () => {
     const geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
-        placeholder: 'Pesquisar endereço'
+        countries: 'br',
+        placeholder: 'Pesquisar endereço',
+        postcode: 'CEP',
+        language: 'pt-BR',
+        types: 'postcode,place,address'
     });
     document.getElementById('geocoder-container').appendChild(geocoder.onAdd(map));
     
-  const institutionImages = {
+    const institutionImages = {
         'São Judas': './assets/marker/marker.png', 'Anhembi Morumbi': './assets/marker/marker_AMO.png',
         'FASEH': './assets/marker/marker_FASEH.png', 'IBMR': './assets/marker/marker_IBMR.png',
         'UniBH': './assets/marker/marker_UNIBH.png', 'Una': './assets/marker/marker_UNA.png',
@@ -127,6 +135,25 @@ map.on('load', () => {
         });
         buildLocationList(stores.features);
     }).catch(error => console.error("Erro ao carregar mapa/imagens:", error));
+
+    geocoder.on('result', (event) => {
+        const searchResult = event.result.geometry;
+        const options = { units: 'kilometers' };
+        for (const store of stores.features) {
+            store.properties.distance = turf.distance(
+                searchResult,
+                store.geometry,
+                options
+            );
+        }
+        const activeListing = document.getElementById(
+            `listing-${stores.features[0].properties.id}`
+        );
+        activeListing.classList.add('active');
+        stores.features.sort((a, b) => a.properties.distance - b.properties.distance);
+        buildLocationList(stores.features);
+    });
+
 
     map.on('click', 'points', (e) => {
         const feature = e.features[0];
