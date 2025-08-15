@@ -134,6 +134,19 @@ map.on('load', () => {
             }
         });
         buildLocationList(stores.features);
+
+        const params = new URLSearchParams(window.location.search);
+        const regionFromUrl = params.get('region');
+        if (regionFromUrl) {
+            filterByRegion(regionFromUrl);
+            const btn = document.querySelector(`.region-btn[data-region="${regionFromUrl}"]`);
+            if (btn) {
+                btn.classList.add('active');
+                const center = JSON.parse(btn.dataset.center);
+                const zoom = JSON.parse(btn.dataset.zoom);
+                map.flyTo({ center, zoom });
+            }
+        }
     }).catch(error => console.error("Erro ao carregar mapa/imagens:", error));
 
     geocoder.on('result', (event) => {
@@ -153,7 +166,6 @@ map.on('load', () => {
         stores.features.sort((a, b) => a.properties.distance - b.properties.distance);
         buildLocationList(stores.features);
     });
-
 
     map.on('click', 'points', (e) => {
         const feature = e.features[0];

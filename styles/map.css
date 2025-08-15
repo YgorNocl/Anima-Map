@@ -1,0 +1,90 @@
+body{
+    font-family: "Poppins";
+    color: #fff;
+    background-color: #0D1926;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mapa-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+svg {
+    width: 60vw;
+    height: 90vh;
+}
+
+path{
+    fill: #1C202B;
+    stroke: #B0C7FF;
+}
+
+.cor{
+    fill: transparent;
+    stroke: #B0C7FF;
+    transition: .6s;
+}
+
+.cor:hover{
+    fill: #F59F3D;
+    stroke: #B0C7FF;
+    transition: .8s;
+}
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.regionais{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.regional-SP{
+    background-color: #171516;
+    width: 450px;
+    height: 148px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.regional-NORD{
+    height: 240px;
+}
+
+.regional-texto{
+    font-size: 16px;
+    font-weight:600;
+    margin-bottom: 14px;
+}
+
+.regional-SP-logo{
+    border-radius: 10px;
+}
+
+.regional-SP:hover{
+    opacity: 70%;
+    transition: 0.5s;
+}
+
+.regional-link {
+  text-decoration: none;
+  color: inherit;
+}
